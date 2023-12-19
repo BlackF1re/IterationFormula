@@ -2,12 +2,10 @@
 #include <math.h>
 #include <stdlib.h>
 #include <float.h>
-#include <conio.h>
-#include <windows.h>
 
 float iterationFormula(float qp, int n, float x)
 {
-	return (x / (2 * n + 2)) * qp;
+	return (x * x * x * x * x)/(4 * n * n + 10 * n + 6) * qp;
 }
 
 void fail()
@@ -18,7 +16,7 @@ void fail()
 
 int main()
 {
-	SetConsoleOutputCP(1251);
+	system("chcp 1251");
 	float eps = 0.0, x = 0.0;
 	printf("\nВведите значение точности, большее -1:\t");
 	scanf_s("%f", &eps);
