@@ -5,7 +5,7 @@
 
 float iterationFormula(float qp, int n, float x)
 {
-	return (x * x * x * x * x)/(4 * n * n + 10 * n + 6) * qp;
+	return ((n * pow(x, 4)) / (4 * pow(n, 3) + 14 * pow(n, 2) + 16 * n + 6)) * qp;
 }
 
 void fail()
@@ -19,7 +19,7 @@ int main()
 	system("chcp 1251");
 	float eps = 0.0, x = 0.0;
 	printf("\nВведите значение точности, большее -1:\t");
-	scanf_s("%f", &eps);
+	scanf("%f", &eps);
 	int overflow = 0;
 	int n = 1;
 	float q1 = 0.0;
@@ -27,8 +27,8 @@ int main()
 	float s = 0.0;
 
 	if (eps <= -1) fail();
-	printf_s("\nВведите x:\t");
-	scanf_s("%f", &x);
+	printf("\nВведите x:\t");
+	scanf("%f", &x);
 	q1 = iterationFormula(1., n, x);
 	s += q1;
 
